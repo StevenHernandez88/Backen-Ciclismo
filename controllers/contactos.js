@@ -52,6 +52,8 @@ contactoRouter.post('/', async (req, res, next) => {
 
     try {
         connection = await db.abrirConexion()
+
+        console.log("hOLA")
         console.log(consecutivo)
         result = await connection.execute(`insert into contacto values ('${consecutivo}','${body.tipoContacto}','${body.descTipoContacto}','${body.tipoPersona}','${body.tipoDoc}','${body.nDocumento}','${body.descContacto}')`)
         await connection.execute(`commit`)
